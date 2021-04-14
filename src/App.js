@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Todos from './components/ToDos';
+import ToDos from './components/ToDos';
 import './App.css';
 
 export class App extends Component {
@@ -13,7 +13,7 @@ export class App extends Component {
       {
         id: 2,
         title: 'Dinner with wife',
-        completed: false,
+        completed: true,
       },
       {
         id: 3,
@@ -26,7 +26,7 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        <Todos todos={this.state.todos} />
+        <ToDos todos={this.state.todos} />
       </div>
     );
   }
