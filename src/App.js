@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/layout/Header';
+import AddToDo from './components/AddToDo';
 import ToDos from './components/ToDos';
 import './App.css';
 
@@ -46,8 +47,11 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <ToDos todos={this.state.todos} markComplete={this.markComplete} deleteToDo={this.deleteToDo} />
+        <div className="container">
+          <Header />
+          <AddToDo />
+          <ToDos todos={this.state.todos} markComplete={this.markComplete} deleteToDo={this.deleteToDo} />
+        </div>
       </div>
     );
   }
