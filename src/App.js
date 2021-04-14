@@ -23,10 +23,22 @@ export class App extends Component {
     ]
   }
 
+  // Toggle complete
+  markComplete = (id) => {
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      })
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <ToDos todos={this.state.todos} />
+        <ToDos todos={this.state.todos} markComplete={this.markComplete} />
       </div>
     );
   }
