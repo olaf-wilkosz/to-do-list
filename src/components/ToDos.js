@@ -1,13 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
+import ToDoItem from './ToDoItem';
 
-class Todos extends React.Component {
+export class Todos extends Component {
   render() {
-    console.log(this.props.todos)
-    return (
-      <div>
-        <h1>Todos</h1>
-      </div>
-    );
+    return this.props.todos.map((todo) => (
+      <ToDoItem key={todo.id} todo={todo} />
+    ));
   }
 }
 

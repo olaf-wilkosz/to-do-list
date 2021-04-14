@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Todos from './components/ToDos';
 import './App.css';
 
-class App extends React.Component {
+export class App extends Component {
   state = {
     todos: [
       {
