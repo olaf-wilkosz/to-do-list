@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Header from './components/layout/Header';
 import AddToDo from './components/AddToDo';
 import ToDos from './components/ToDos';
@@ -8,17 +9,17 @@ export class App extends Component {
   state = {
     todos: [
       {
-        id: 1,
+        id: uuidv4(),
         title: 'Take out the trash',
         completed: false,
       },
       {
-        id: 2,
+        id: uuidv4(),
         title: 'Dinner with wife',
         completed: true,
       },
       {
-        id: 3,
+        id: uuidv4(),
         title: 'Meeting with boss',
         completed: false,
       },
@@ -44,12 +45,24 @@ export class App extends Component {
     });
   }
 
+  // Add ToDo
+  addToDo = (title) => {
+    const newTodo = {
+      id: uuidv4(),
+      title,
+      completed: false,
+    }
+    this.setState({
+      todos: [...this.state.todos, newTodo]
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <div className="container">
           <Header />
-          <AddToDo />
+          <AddToDo addToDo={this.addToDo} />
           <ToDos todos={this.state.todos} markComplete={this.markComplete} deleteToDo={this.deleteToDo} />
         </div>
       </div>
